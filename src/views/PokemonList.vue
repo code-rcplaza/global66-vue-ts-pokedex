@@ -62,7 +62,6 @@ useInfiniteScroll(scrollContainer, loadMore, {
       <p class="caption">{{ copy.error.caption }}</p>
     </div>
 
-    <!-- ✅ Siempre renderiza el scroll container -->
     <div v-else ref="scrollContainer" class="scroll-container">
       <div class="pokemon-list">
         <PokemonItem
@@ -168,5 +167,11 @@ main {
   justify-content: center;
   align-items: center;
   z-index: 9999;
+}
+
+@media screen and (min-width: 1024px) {
+  main {
+    width: var(--desktop-max-width);
+  }
 }
 </style>

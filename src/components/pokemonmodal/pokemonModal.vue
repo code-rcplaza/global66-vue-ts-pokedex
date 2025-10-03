@@ -138,7 +138,7 @@ onMounted(getPokemonDetail);
   border-radius: 16px;
   overflow: hidden;
   min-width: 320px;
-  max-width: 480px;
+  max-width: var(--desktop-max-width);
   width: 90%;
   position: relative;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);

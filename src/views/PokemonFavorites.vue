@@ -4,6 +4,7 @@ import PokemonItem from "@/components/pokemonitem/PokemonItem.vue";
 import PokemonModal from "@/components/pokemonmodal/PokemonModal.vue";
 import SearchBar from "@/components/searchbar/SearchBar.vue";
 import { useLoader } from "@/composables/useLoader";
+import { copy } from "@/copy/en";
 import { usePokemonFavorites } from "@/stores/pokemonFavorites";
 import { computed, ref } from "vue";
 
@@ -35,8 +36,12 @@ const filteredFavorites = computed(() => {
   <main>
     <SearchBar v-model="searchQuery" class="mb-sm" />
 
-    <!-- List -->
-    <div class="pokemon-list">
+    <div v-if="filteredFavorites.length === 0" class="empty">
+      <h1 class="title">{{ copy.error.title }}</h1>
+      <p class="caption">{{ copy.error.caption }}</p>
+    </div>
+
+    <div v-else class="pokemon-list">
       <PokemonItem
         v-for="name in filteredFavorites"
         :key="name"
@@ -98,5 +103,11 @@ main {
 
 .container::-webkit-scrollbar {
   display: none;
+}
+
+@media screen and (min-width: 1024px) {
+  main {
+    width: var(--desktop-max-width);
+  }
 }
 </style>
