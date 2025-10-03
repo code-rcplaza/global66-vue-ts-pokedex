@@ -1,5 +1,5 @@
+import { BASE_URL, DEFAULT_LIMIT, DEFAULT_OFFSET } from "@/constants";
 import { Err, Ok, type Result } from "oxide.ts";
-import { BASE_URL, DEFAULT_LIMIT, DEFAULT_OFFSET } from "../constants";
 import type {
   Pokemon,
   PokemonDetailResponse,
