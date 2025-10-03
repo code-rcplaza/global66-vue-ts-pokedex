@@ -74,5 +74,6 @@ withDefaults(defineProps<ButtonProps>(), {
 
 .btn__label {
   font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-regular);
 }
 </style>
