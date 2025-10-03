@@ -1,35 +1,30 @@
 import { defineStore } from "pinia";
-import { computed, ref } from "vue";
+import { ref } from "vue";
 
 export const usePokemonFavorites = defineStore(
   "favorites",
   () => {
     const favorites = ref<string[]>([]);
 
-    const isFavorite = computed(() => {
-      return (name: string) => favorites.value.includes(name);
-    });
+    const isFavorite = (name: string) => favorites.value.includes(name);
 
-    function addFavorite(name: string) {
-      if (!favorites.value.includes(name)) {
+    const addFavorite = (name: string) => {
+      if (!isFavorite(name)) {
         favorites.value.push(name);
       }
-    }
+    };
 
-    function removeFavorite(name: string) {
-      const index = favorites.value.indexOf(name);
-      if (index > -1) {
-        favorites.value.splice(index, 1);
-      }
-    }
+    const removeFavorite = (name: string) => {
+      favorites.value = favorites.value.filter((f) => f !== name);
+    };
 
-    function toggleFavorite(name: string) {
-      if (isFavorite.value(name)) {
+    const toggleFavorite = (name: string) => {
+      if (isFavorite(name)) {
         removeFavorite(name);
       } else {
         addFavorite(name);
       }
-    }
+    };
 
     return {
       favorites,
