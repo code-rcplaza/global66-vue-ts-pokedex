@@ -1,0 +1,65 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap");
+
+:root {
+  --color-background: #f9f9f9;
+  --color-white: #ffffff;
+
+  --color-btn-default: #f22539;
+  --color-btn-pressed: #c00e20;
+  --color-btn-active: #f22539;
+  --color-btn-inactive: #bfbfbf;
+
+  --color-fav-on: #eca539;
+  --color-fav-off: #bfbfbf;
+  --color-fav-background: #f5f5f5;
+  --size-fav-btn: 40px;
+
+  --color-text-primary: #353535;
+  --color-text-secondary: #5e5e5e;
+  --color-text-tertiary: #bfbfbf;
+  --color-text-white: #ffffff;
+
+  --font-weight-bold: 700;
+  --font-weight-regular: 400;
+  --font-weight-light: 300;
+
+  --font-size-xs: 1rem;
+  --font-size-sm: 1.125rem;
+  --font-size-md: 1.25rem;
+  --font-size-lg: 1.625rem;
+  --font-size-xl: 2.25rem;
+
+  --space-default: 0.625px;
+
+  --space-xxs: 0.688rem;
+  --space-xs: 1.25rem;
+  --space-sm: 2rem;
+  --space-md: 3rem;
+  --space-lg: 4rem;
+
+  --border-radius-pill: 9999px;
+  --border-radius-rounded: 50%;
+  --border-color-search: rgba(0, 0, 0, 0.04);
+
+  --size-icon: 26px;
+
+  --desktop-max-width: 570px;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Lato", sans-serif;
+}
+
+body {
+  background-color: var(--color-background);
+}
+
+@media screen and (min-width: 1024px) {
+  #app {
+    display: flex;
+    justify-content: center;
+  }
+}
