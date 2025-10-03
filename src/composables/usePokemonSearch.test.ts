@@ -191,7 +191,7 @@ describe("usePokemonSearch", () => {
       expect(searchQuery.value).toBe("pikachu");
     });
 
-    it("should not fetch if a local match is found", async () => {
+    it("should not fetch if exact match is found", async () => {
       vi.spyOn(pokemonService, "fetchPokemonList").mockResolvedValue(
         Ok([{ name: "pikachu", url: "url1" }])
       );
@@ -205,9 +205,30 @@ describe("usePokemonSearch", () => {
       const { loadPokemons, handleSearch } = usePokemonSearch();
       await loadPokemons();
 
-      await handleSearch("pika");
+      await handleSearch("pikachu");
 
       expect(fetchSpy).not.toHaveBeenCalled();
+    });
+
+    it("should fetch if only partial match exists", async () => {
+      vi.spyOn(pokemonService, "fetchPokemonList").mockResolvedValue(
+        Ok([{ name: "mewtwo", url: "url1" }])
+      );
+
+      const fetchSpy = vi.fn().mockResolvedValue({
+        ok: true,
+        json: async () => ({ name: "mew", id: 151 }),
+      });
+      global.fetch = fetchSpy;
+
+      const { loadPokemons, handleSearch } = usePokemonSearch();
+      await loadPokemons();
+
+      await handleSearch("mew");
+
+      expect(fetchSpy).toHaveBeenCalledWith(
+        "https://pokeapi.co/api/v2/pokemon/mew"
+      );
     });
 
     it("should fetch if no local match is found", async () => {
@@ -229,6 +250,29 @@ describe("usePokemonSearch", () => {
       expect(fetchSpy).toHaveBeenCalledWith(
         "https://pokeapi.co/api/v2/pokemon/pikachu"
       );
+    });
+
+    it("should handle 404 errors gracefully", async () => {
+      const fetchSpy = vi.fn().mockResolvedValue({
+        ok: false,
+        status: 404,
+      });
+      global.fetch = fetchSpy;
+
+      const { handleSearch, error } = usePokemonSearch();
+      await handleSearch("fakemon");
+
+      expect(error.value).toBeNull();
+    });
+
+    it("should set error on network failure", async () => {
+      const fetchSpy = vi.fn().mockRejectedValue(new Error("Network error"));
+      global.fetch = fetchSpy;
+
+      const { handleSearch, error } = usePokemonSearch();
+      await handleSearch("pikachu");
+
+      expect(error.value).toBe("Error searching pokemon");
     });
   });
 });

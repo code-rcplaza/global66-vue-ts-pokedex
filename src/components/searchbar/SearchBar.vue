@@ -21,7 +21,7 @@ const emit = defineEmits<SearchBarEmits>();
 
 const debouncedSearch = useDebounceFn((value: string) => {
   emit("search", value);
-}, 1000);
+}, 800);
 
 function handleInput(event: Event) {
   const value = (event.target as HTMLInputElement).value;
