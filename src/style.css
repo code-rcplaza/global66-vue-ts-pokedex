@@ -42,6 +42,8 @@
   --border-color-search: rgba(0, 0, 0, 0.04);
 
   --size-icon: 26px;
+
+  --desktop-max-width: 570px;
 }
 
 * {
@@ -49,4 +51,15 @@
   margin: 0;
   box-sizing: border-box;
   font-family: "Lato", sans-serif;
+}
+
+body {
+  background-color: var(--color-background);
+}
+
+@media screen and (min-width: 1024px) {
+  #app {
+    display: flex;
+    justify-content: center;
+  }
 }
