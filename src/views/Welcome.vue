@@ -1,13 +1,7 @@
 <script setup lang="ts">
 import Button from "@/components/button/Button.vue";
 import { copy } from "@/copy/en";
-import { useRouter } from "vue-router";
-
-const router = useRouter();
-
-const goToPokemonList = (): void => {
-  router.push({ name: "list" });
-};
+import { RouterLink } from "vue-router";
 </script>
 
 <template>
@@ -19,11 +13,13 @@ const goToPokemonList = (): void => {
 
       <p class="caption">{{ copy.welcome.caption }}</p>
     </div>
-    <Button class="btn__start" @click="goToPokemonList">
-      <template #label>
-        <span>{{ copy.buttons.getStarted }}</span>
-      </template>
-    </Button>
+    <RouterLink :to="{ name: 'list' }">
+      <Button class="btn__start">
+        <template #label>
+          <span>{{ copy.buttons.getStarted }}</span>
+        </template>
+      </Button>
+    </RouterLink>
   </main>
 </template>
 
