@@ -15,7 +15,7 @@
   padding: 0;
   min-height: 100vh;
   z-index: 9999;
-  background-color: var(--color-white);
+  background-color: var(--color-background);
 }
 
 .loader__icon {
