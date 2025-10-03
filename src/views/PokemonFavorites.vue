@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import Navbar from "@/components/navbar/Navbar.vue";
 import PokemonItem from "@/components/pokemonitem/PokemonItem.vue";
-import PokemonModal from "@/components/pokemonmodal/pokemonModal.vue";
+import PokemonModal from "@/components/pokemonmodal/PokemonModal.vue";
 import SearchBar from "@/components/searchbar/SearchBar.vue";
 import { useLoader } from "@/composables/useLoader";
 import { usePokemonFavorites } from "@/stores/pokemonFavorites";

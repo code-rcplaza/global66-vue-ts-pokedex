@@ -2,7 +2,7 @@
 import Loader from "@/components/loader/Loader.vue";
 import Navbar from "@/components/navbar/Navbar.vue";
 import PokemonItem from "@/components/pokemonitem/PokemonItem.vue";
-import PokemonModal from "@/components/pokemonmodal/pokemonModal.vue";
+import PokemonModal from "@/components/pokemonmodal/PokemonModal.vue";
 import SearchBar from "@/components/searchbar/SearchBar.vue";
 import { usePokemonSearch } from "@/composables/usePokemonSearch";
 import { copy } from "@/copy/en";
