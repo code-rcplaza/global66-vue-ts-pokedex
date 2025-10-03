@@ -17,7 +17,7 @@ Aplicación web para explorar y gestionar Pokémon favoritos, construida con Vue
 **Estado:** Pinia + pinia-plugin-persistedstate  
 **Errores:** oxide.ts (Result Pattern)  
 **Testing:** Vitest, Vue Test Utils, happy-dom  
-**Runtime:** Bun 1.1+>
+**Runtime:** Bun 1.1+
 
 ## ⚡ Cómo correr el proyecto>
 
