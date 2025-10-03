@@ -19,7 +19,7 @@ Aplicación web para explorar y gestionar Pokémon favoritos, construida con Vue
 **Testing:** Vitest, Vue Test Utils, happy-dom  
 **Runtime:** Bun 1.1+
 
-## ⚡ Cómo correr el proyecto>
+## ⚡ Cómo correr el proyecto
 
 ### Requisitos
 
